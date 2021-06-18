@@ -2,6 +2,13 @@ package com.code.practise;
 
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+
 /**
  * description
  *
@@ -16,22 +23,68 @@ public class Demo {
 
     public static void main(String[] args) {
 
-        Demo demo = new Demo();
+//        Demo demo = new Demo();
+//
+//        demo.say();
+//
+//        DemoChild child = new DemoChild();
+//        child.say();
+//
+//        Demo child2 = new DemoChild();
+//
+//        child2.say();
+//
+//        System.out.println(child2 instanceof Demo);
+//
+//        System.out.println(child2 instanceof DemoChild);
+//
+//        System.out.println(demo instanceof DemoChild);
 
-        demo.say();
+//        Map map = new HashMap(8);
+//
+//        map.put("1","dou");
+//
+//        map.put("key","dou");
+//
+//        map.put("name1","dou");
+//
+//        map.put("name2","dou");
+//
+//        map.put("name3","dou");
 
-        DemoChild child = new DemoChild();
-        child.say();
+//        Object o = new DiaoMao();
+//        System.out.println(o);
+//        Object n = o;
+//        o = new DiaoMao();
+//        System.out.println(n);
+//
+//        System.out.println(o);
 
-        Demo child2 = new DemoChild();
+//        BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<>(10000);
+//
+//        for(int i = 0; i < 10000; i++) {
+//            blockingQueue.add(i);
+//        }
+//
+//        for(int i = 0; i < 10000; i++) {
+//            System.out.println(blockingQueue.poll());
+//        }
 
-        child2.say();
+        BlockingQueue<String> blockingQueue = new ArrayBlockingQueue<>(10);
 
-        System.out.println(child2 instanceof Demo);
-
-        System.out.println(child2 instanceof DemoChild);
-
-        System.out.println(demo instanceof DemoChild);
+        System.out.println(blockingQueue.add("a"));
+        System.out.println(blockingQueue.add("b"));
+        System.out.println(blockingQueue.add("c"));
+        System.out.println(blockingQueue.add("d"));
+        System.out.println(blockingQueue.add("d"));
+        System.out.println(blockingQueue.add("d"));
+        System.out.println(blockingQueue.add("d"));
+        System.out.println(blockingQueue.add("d"));
+        System.out.println(blockingQueue.add("d"));
+        System.out.println(blockingQueue.add("d"));
+        System.out.println(blockingQueue.add("d"));
+        System.out.println(blockingQueue.add("d"));
+        System.out.println(blockingQueue.add("d"));
 
     }
 
