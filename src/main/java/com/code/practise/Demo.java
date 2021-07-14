@@ -2,10 +2,7 @@ package com.code.practise;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -22,6 +19,18 @@ public class Demo {
     private static String B = "B";
 
     public static void main(String[] args) {
+
+
+//        Deque deque = new LinkedList();
+//
+//        for(int i = 0; i < 5; i++) {
+//            deque.add(i);
+//        }
+//        while (!deque.isEmpty()){
+//            System.out.println(deque.pollLast());
+//        }
+
+        System.out.println(Arrays.toString(new Demo().MySort(new int[]{5,4,3,2,1})));
 
 //        Demo demo = new Demo();
 //
@@ -70,22 +79,6 @@ public class Demo {
 //            System.out.println(blockingQueue.poll());
 //        }
 
-        BlockingQueue<String> blockingQueue = new ArrayBlockingQueue<>(10);
-
-        System.out.println(blockingQueue.add("a"));
-        System.out.println(blockingQueue.add("b"));
-        System.out.println(blockingQueue.add("c"));
-        System.out.println(blockingQueue.add("d"));
-        System.out.println(blockingQueue.add("d"));
-        System.out.println(blockingQueue.add("d"));
-        System.out.println(blockingQueue.add("d"));
-        System.out.println(blockingQueue.add("d"));
-        System.out.println(blockingQueue.add("d"));
-        System.out.println(blockingQueue.add("d"));
-        System.out.println(blockingQueue.add("d"));
-        System.out.println(blockingQueue.add("d"));
-        System.out.println(blockingQueue.add("d"));
-
     }
 
     public void say(){
@@ -130,6 +123,70 @@ public class Demo {
 //        t2.start();
 //
 //    }
+
+
+
+    public int[] MySort (int[] arr) {
+        // write code here
+
+        mergeSort(arr,0,arr.length - 1,new int[arr.length]);
+
+        return arr;
+
+    }
+
+    private void mergeSort(int[] arr, int left, int right, int[] tmp){
+
+        if(left >= right){
+            return;
+        }
+
+        int mid = (left + right) / 2;
+
+        mergeSort(arr,left,mid,tmp);
+        mergeSort(arr,mid + 1,right,tmp);
+
+        merge(arr,left,mid,right,tmp);
+
+    }
+
+    private void merge(int [] arr, int left, int mid, int right, int[] tmp){
+
+        int l = left;
+        int r = mid + 1;
+
+        int index = 0;
+
+        while(l <= mid && r <= right){
+
+            if(arr[l] > arr[r]){
+                tmp[index++] = arr[r++];
+            }else{
+                tmp[index++] = arr[l++];
+            }
+
+        }
+
+        while(l <= mid){
+            tmp[index++] = arr[l++];
+        }
+
+        while(r <= right){
+            tmp[index++] = arr[r++];
+        }
+        int i = 0;
+        while(left <= right){
+            arr[left++] = tmp[i++];
+        }
+
+        List<Integer> list = new ArrayList<>();
+
+        Integer[] a = new Integer[list.size()];
+
+        a = list.toArray(a);
+
+    }
+
 
 
 }
